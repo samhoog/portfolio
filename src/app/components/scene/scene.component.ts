@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ViewChild, ElementRef} from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 @Component({
   selector: 'scene-component',
@@ -22,9 +23,7 @@ export class SceneComponent implements AfterViewInit {
   }
 
   private model! : THREE.Group;
-  private geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
-  private material = new THREE.MeshBasicMaterial( {color: 0x00ff00} ); 
-  private cube = new THREE.Mesh( this.geometry, this.material ); 
+  private controls! : OrbitControls;
     
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
@@ -42,17 +41,22 @@ export class SceneComponent implements AfterViewInit {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xf0f0f0);
 
-    this.camera = new THREE.PerspectiveCamera(1, this.getAspectRatio(), 1, 1000);
-    this.camera.position.z = 400;
+    this.camera = new THREE.PerspectiveCamera(45, this.getAspectRatio(), 1, 1000);
+    this.camera.position.z = 50;
+    this.camera.position.x = -80;
+    this.camera.position.y = 20;
+
+    this.controls = new OrbitControls(this.camera, this.canvas);
     this.loader = new GLTFLoader();
-    this.loader.load('assets/skibidi.glb', (gltf) => { 
-      this.model = gltf.scene; 
-      this.model.position.set(0, 1, 0);
+    this.loader.load('assets/nikon.glb', (gltf) => { 
+      this.model = gltf.scene;
+      this.model.scale.set(1.5, 1.5, 1.5);
+      this.model.position.set(0, 0, 0);
       this.scene.add(this.model)
     });
 
-    const ambientLight = new THREE.AmbientLight(0xffffff);
-    ambientLight.position.set(0, 1, 0);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 50);
+    ambientLight.position.set(10, 10, 10);
     this.scene.add(ambientLight);
   }
 
@@ -70,9 +74,12 @@ export class SceneComponent implements AfterViewInit {
     this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
 
     let component: SceneComponent = this;
+
+    let controls : OrbitControls = this.controls;
     (function render() {
       requestAnimationFrame(render);
-      component.animateCube();
+      controls.update();
+      //component.animateCube();
       component.renderer.render(component.scene, component.camera);
     }());
   }
