@@ -19,6 +19,7 @@ import { SceneComponent } from '../scene/scene.component';
         overflow: 'hidden',
       })),
       state('visible', style({
+        transformOrigin: 'left',
         transform: 'scaleX(1)',
         width: '105%',
       })),
@@ -32,6 +33,7 @@ import { SceneComponent } from '../scene/scene.component';
         overflow: 'hidden',
       })),
       state('visible', style({
+        transformOrigin: 'left',
         transform: 'scaleX(1)',
         width: '80%',
       })),

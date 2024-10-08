@@ -15,8 +15,14 @@ export class SceneComponent implements AfterViewInit {
 
   @ViewChild('canvas') private canvasRef!: ElementRef;
 
+  private atCamera = false;
+  private end! : THREE.Vector3;
+  private endLookAt!: THREE.Vector3;
+
   private camera!: THREE.PerspectiveCamera;
   private loader! : GLTFLoader;
+  private raycaster = new THREE.Raycaster;
+  private mouse = new THREE.Vector2;
 
   private get canvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
@@ -28,8 +34,71 @@ export class SceneComponent implements AfterViewInit {
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
 
-  constructor() {}
+  private imageLoader!: THREE.ImageLoader;
 
+  constructor() {
+    window.addEventListener('click', this.onMouseClick.bind(this), false);
+  }
+
+  private onMouseClick(event: MouseEvent) {
+    // Calculate mouse position in normalized device coordinates
+    this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  
+    // Update the raycaster with the camera and mouse position
+    this.raycaster.setFromCamera(this.mouse, this.camera);
+  
+    // Calculate objects intersecting the ray
+    const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+  
+    if (intersects.length > 0) {
+      // Trigger an event or perform an action on the clicked object
+      console.log('Clicked on:', intersects[0].object);
+      this.handleClick();
+    }
+  }
+
+  private handleClick() {
+    if (this.atCamera == false) {
+      this.end = new THREE.Vector3(54, 16, -1);
+      this.endLookAt = new THREE.Vector3(0, 5, 0);
+      this.atCamera = true;
+    } else {
+      this.end = new THREE.Vector3(-80, 20, 50);
+      this.endLookAt = new THREE.Vector3(0, 0, 0);
+      this.atCamera = false;
+    }
+    const start = this.camera.position.clone();
+    const startTime = performance.now();
+
+    const currentLookAt = new THREE.Vector3();
+    this.camera.getWorldDirection(currentLookAt); // Get the forward direction
+    currentLookAt.add(this.camera.position); // Calculate lookAt point
+
+    // Animate the rotation over time (optional)
+    const duration = 2000; // Duration in milliseconds
+    const lookAtDuration = 100000;
+
+    const animate = (time: number) => {
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const lookAtProgress = Math.min(elapsed / lookAtDuration, 1);
+      
+      this.camera.position.lerpVectors(start, this.end, progress);
+      
+      const newLookAt = new THREE.Vector3;
+      newLookAt.copy(currentLookAt).lerpVectors(this.camera.getWorldDirection(new THREE.Vector3()).add(this.camera.position), this.endLookAt, lookAtProgress);
+      this.camera.lookAt(newLookAt);
+      
+      this.renderer.render(this.scene, this.camera);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+  };
+
+  requestAnimationFrame(animate);
+  }
 
   
   ngAfterViewInit(): void {
@@ -46,9 +115,11 @@ export class SceneComponent implements AfterViewInit {
     this.camera.position.x = -80;
     this.camera.position.y = 20;
 
-    this.controls = new OrbitControls(this.camera, this.canvas);
+    this.camera.lookAt(0, 0, 0);
+    // this.controls = new OrbitControls( this.camera, this.canvas );
+
     this.loader = new GLTFLoader();
-    this.loader.load('assets/nikon.glb', (gltf) => { 
+    this.loader.load('assets/models/nikon.glb', (gltf) => { 
       this.model = gltf.scene;
       this.model.scale.set(1.5, 1.5, 1.5);
       this.model.position.set(0, 0, 0);
@@ -58,14 +129,21 @@ export class SceneComponent implements AfterViewInit {
     const ambientLight = new THREE.AmbientLight(0xffffff, 50);
     ambientLight.position.set(10, 10, 10);
     this.scene.add(ambientLight);
+
+    const texture = new THREE.TextureLoader().load( 'assets/images/boys.JPG' );
+
+
+    // and this is example code to get it to be on a plane
+    const geometry11 = new THREE.PlaneGeometry( 18, 15 );
+    const material11 = new THREE.MeshBasicMaterial( { map: texture });
+    const plane11 = new THREE.Mesh( geometry11, material11 );
+    plane11.position.set(14, 9, 1);
+    plane11.rotateY(1.5);
+    this.scene.add(plane11);
   }
 
   private getAspectRatio() {
     return this.canvas.clientWidth / this.canvas.clientHeight;
-  }
-
-  private animateCube() {
-    this.model.rotation.y += 0.01;
   }
 
   private startRendering() {
@@ -75,11 +153,10 @@ export class SceneComponent implements AfterViewInit {
 
     let component: SceneComponent = this;
 
-    let controls : OrbitControls = this.controls;
+    // let controls : OrbitControls = this.controls;
     (function render() {
       requestAnimationFrame(render);
-      controls.update();
-      //component.animateCube();
+      // controls.update();
       component.renderer.render(component.scene, component.camera);
     }());
   }
