@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ViewChild, ElementRef} from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'scene-component',
@@ -187,7 +186,7 @@ export class SceneComponent implements AfterViewInit {
   private startRendering() {
     this.renderer = new THREE.WebGLRenderer( { canvas: this.canvas });
     this.renderer.setPixelRatio(devicePixelRatio);
-    this.renderer.setSize(800, 800);
+    this.renderer.setSize(600, 600);
 
     let component: SceneComponent = this;
 

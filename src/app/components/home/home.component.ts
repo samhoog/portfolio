@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { TextScrambleService } from '../../services/TextScramble/text-scramble.service';
-import * as THREE from 'three';
+import { GradeboostComponent } from '../gradeboost/gradeboost.component';
 import { SceneComponent } from '../scene/scene.component';
+import { KnightflixComponent } from '../knightflix/knightflix.component';
+import { ArtificialComponent } from '../art-ificial/art-ificial.component';
 
 @Component({
   selector: 'home-component',
   standalone: true,
-  imports: [SceneComponent],
+  imports: [SceneComponent, GradeboostComponent, KnightflixComponent, ArtificialComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   animations: [
@@ -35,10 +37,10 @@ import { SceneComponent } from '../scene/scene.component';
       state('visible', style({
         transformOrigin: 'left',
         transform: 'scaleX(1)',
-        width: '80%',
+        width: '100%',
       })),
       transition('visible => hidden', animate('1000ms ease-out')),
-    ])
+    ]),
   ]
 })
 export class HomeComponent implements OnInit {
@@ -55,8 +57,9 @@ export class HomeComponent implements OnInit {
 
     setTimeout(() => {
       this.textScrambleService.init(this.scrambleElement.nativeElement);
-      this.textScrambleService.setText("Full Stack Developer");
+      this.textScrambleService.setText("<i>Full Stack Developer");
     }, 800)
+
   }
   
 }

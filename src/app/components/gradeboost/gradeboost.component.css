@@ -1,0 +1,48 @@
+.wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: #3b6064;
+    border-radius: 15%;
+    width: 30vw;
+    height: 60vh;
+    justify-content: right;
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+.title {
+    display: block;
+    color: #c9e4ca;
+    margin-right: 8%;
+    margin-top: 6%;
+    right: 0;
+    top: 0;
+    font-size: 3vw;
+    position: absolute;
+}
+
+.image-wrapper {
+    display: flex;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    height: 75%;
+    transition: transform 0.3s;
+}
+
+.image {
+    border-radius: 10px 0 0 0;
+}
+
+.wrapper:hover {
+    transform: translateY(5px); /* Move up by 10px */
+}
+
+.wrapper:hover .image-wrapper{ 
+    transform: translateY(3px);
+}
+
+.wrapper:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+}

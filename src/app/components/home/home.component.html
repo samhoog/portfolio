@@ -1,14 +1,33 @@
-<div class="intro">
-  <div class="name-wrapper">
-    <p class="name"><b>Sam Hoogewind</b></p>
-    <div class="box" [@revealAnimation]="isVisible ? 'visible' : 'hidden'"></div>
+<div class="wrapper">
+  <div class="intro">
+    <div class="name-wrapper">
+      <p class="name"><b>Sam Hoogewind</b></p>
+      <div class="box" [@revealAnimation]="isVisible ? 'visible' : 'hidden'"></div>
+    </div>
+
+    <div class="about-wrapper">
+      <p class="about" #scrambleElement><i>\&#123;]=__+*^&#125;_#.>-?!\/_#^</i></p>
+      <div class="box" [@revealAnimation2]="isVisible ? 'visible' : 'hidden'"></div>
+    </div>
   </div>
 
-  <div class="about-wrapper">
-    <p class="about" #scrambleElement><i>\&#123;]=__+*^&#125;_#.>-?!\/_#^</i></p>
-    <div class="box" [@revealAnimation2]="isVisible ? 'visible' : 'hidden'"></div>
+  <div class="projects-wrapper">
+    <div class="gradeboost">
+      <img src="assets/images/rocket.png" class="rocket">
+      <gradeboost-component></gradeboost-component>
+    </div>
+
+    <div class="knightflix">
+      <knightflix-component></knightflix-component>
+    </div>
+
+    <div class="artificial">
+      <img src="assets/images/pencil.png" class="pencil">
+      <artificial-component></artificial-component>
+    </div>
   </div>
+
+  <!-- <div class="camera">
+    <scene-component></scene-component>
+  </div> -->
 </div>
-
-<scene-component></scene-component>
-<p>---- click</p>

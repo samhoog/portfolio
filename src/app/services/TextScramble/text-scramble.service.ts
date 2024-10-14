@@ -50,7 +50,7 @@ export class TextScrambleService {
         if (!char || Math.random() < 0.28) {
           this.queue[i].char = this.randomChar();
         }
-        output += `<span class="dud">${this.queue[i].char}</span>`;
+        output += `<span class="dud"><i>${this.queue[i].char}</span>`;
       } else {
         output += from;
       }

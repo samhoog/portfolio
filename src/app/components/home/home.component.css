@@ -7,44 +7,112 @@
   position: absolute; /* Position it relative to the viewport */
   top: 0;
   left: 0;
-  background-color: #f0f0f0; /* Optional: set a background color */
 }
 
-html, body {
-  height: 100%; /* Make sure the body takes up the full height of the viewport */
-  margin: 0; /* Remove default margin */
+.wrapper {
+  background-image: linear-gradient(#87bba2, #c9e4ca 30%);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 .name-wrapper, .about-wrapper {
   display: flex;
   align-items: center;
   margin-left: 20vw;
-  position: relative;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.name-wrapper {
+  margin-top: 30vh;
+}
+
+.about-wrapper {
+  margin-top: 48vh;
 }
 
 .intro {
-  position: relative;
+  width: 100vw;
+  height: 150vh;
 }
 
 .name {
-  font-size: 4vw;
+  font-size: 5vw;
+  color: #364958;
 }
 
 .about {
   font-size: 2vw;
+  color: #364958;
 }
 
 .box {
   position: absolute; /* Position it absolutely within the container */
   left: 0;
-  background-color: #3498db; /* Box color */
+  background-color: #55828b; /* Box color */
   color: white;
   overflow: hidden;
   width: 100%;
-  height: 70%;
+  height: 75%;
 }
 
 .name, .about {
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+.gradeboost, .camera, .knightflix, .artificial {
+  margin: 2%;
+}
+
+.projects-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.rocket {
+  visibility: hidden;
+  width: 5vw;
+  position: absolute;
+  z-index: 1;
+  left: 5vw;
+  margin-top: -2vh;
+}
+
+.pencil {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  width: 5vw;
+  left: 61vw;
+  margin-top: -2vh;
+}
+
+.gradeboost:hover .rocket{
+  visibility: visible;
+  animation: rocketAnimation 6s cubic-bezier(0.4, 0, 0.1, 1.0) forwards;
+}
+
+.artificial:hover .pencil {
+  visibility: visible;
+  animation: pencilAnimation 1.2s forwards;
+}
+
+@keyframes rocketAnimation {
+  0% {
+    visibility: visible;
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translate(100vw, -100vh); /* Move to the top right */
+  }
+}
+
+@keyframes pencilAnimation {
+  0% { visibility: visible; }
+  100% { transform: translateY(-5px);}
 }
