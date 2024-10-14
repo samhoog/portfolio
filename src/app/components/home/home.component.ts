@@ -5,11 +5,13 @@ import { GradeboostComponent } from '../gradeboost/gradeboost.component';
 import { SceneComponent } from '../scene/scene.component';
 import { KnightflixComponent } from '../knightflix/knightflix.component';
 import { ArtificialComponent } from '../art-ificial/art-ificial.component';
+import { LoadingScreenComponent } from '../loadingscreen/loadingscreen.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'home-component',
   standalone: true,
-  imports: [SceneComponent, GradeboostComponent, KnightflixComponent, ArtificialComponent],
+  imports: [SceneComponent, GradeboostComponent, KnightflixComponent, ArtificialComponent, LoadingScreenComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   animations: [
@@ -47,18 +49,23 @@ export class HomeComponent implements OnInit {
   @ViewChild('scrambleElement', { static: true }) scrambleElement!: ElementRef;
   isVisible = true;
   readonly Scene = SceneComponent;
+  showOverlay = true;
 
   constructor(private textScrambleService: TextScrambleService) {}
 
   ngOnInit() {
     setTimeout(() => {
+      this.showOverlay = false;
+    }, 2500); // Delay to allow for the view to render
+
+    setTimeout(() => {
       this.isVisible = false;
-    }, 100); // Delay to allow for the view to render
+    }, 2600); // Delay to allow for the view to render
 
     setTimeout(() => {
       this.textScrambleService.init(this.scrambleElement.nativeElement);
       this.textScrambleService.setText("<i>Full Stack Developer");
-    }, 800)
+    }, 3300)
 
   }
   
