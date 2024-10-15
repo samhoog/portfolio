@@ -7,11 +7,12 @@ import { KnightflixComponent } from '../knightflix/knightflix.component';
 import { ArtificialComponent } from '../art-ificial/art-ificial.component';
 import { LoadingScreenComponent } from '../loadingscreen/loadingscreen.component';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'home-component',
   standalone: true,
-  imports: [SceneComponent, GradeboostComponent, KnightflixComponent, ArtificialComponent, LoadingScreenComponent, CommonModule],
+  imports: [SceneComponent, GradeboostComponent, KnightflixComponent, ArtificialComponent, LoadingScreenComponent, CommonModule, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   animations: [

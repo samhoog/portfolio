@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: linear-gradient(#87bba2, #c9e4ca 30%);
+    padding: 0.5vh;
+    color: #364958;
+    position: fixed;              
+    width: 100%;                  /* Full width */
+    top: 0;                       /* Aligns to the top */
+    /* z-index: 1000;                Ensures it stays above other content */
+}
+
+.navbar-links {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: 20vw;
+}
+
+a {
+    display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 105%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #8B94A3;
+    transform-origin: bottom center;
+    transition: transform 0.3s ease-out;
+}
+  
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+    background-color: #50B2C0;
+}

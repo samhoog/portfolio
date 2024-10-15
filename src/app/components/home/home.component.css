@@ -10,7 +10,7 @@
 }
 
 .wrapper {
-  background-image: linear-gradient(#87bba2, #c9e4ca 80%);
+  background-image: linear-gradient(#87bba2, #c9e4ca 30%);
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
@@ -90,12 +90,26 @@
   margin-top: -2vh;
 }
 
+.movie {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  width: 6vw;
+  left: 36vw;
+  margin-top: -2vh;
+}
+
 .gradeboost:hover .rocket{
   visibility: visible;
   animation: rocketAnimation 6s cubic-bezier(0.4, 0, 0.1, 1.0) forwards;
 }
 
 .artificial:hover .pencil {
+  visibility: visible;
+  animation: pencilAnimation 1.2s forwards;
+}
+
+.knightflix:hover .movie {
   visibility: visible;
   animation: pencilAnimation 1.2s forwards;
 }
@@ -115,4 +129,36 @@
 @keyframes pencilAnimation {
   0% { visibility: visible; }
   100% { transform: translateY(-5px);}
+}
+
+.connections-wrapper {
+  position: absolute;
+  right: 3vw;
+  top: 35vh;
+}
+
+.github, .linkedin, .email {
+  width: 4vw;
+  padding: 4%;
+}
+
+.github:hover {
+  animation: logoHover 0.5s forwards;
+}
+
+.linkedin:hover {
+  animation: logoHover 0.5s forwards;
+}
+
+.email:hover {
+  animation: logoHover 0.5s forwards;
+}
+
+@keyframes logoHover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
 }
