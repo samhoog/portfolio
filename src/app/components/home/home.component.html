@@ -1,5 +1,6 @@
 <loadingscreen-component *ngIf="showOverlay"></loadingscreen-component>
 <app-navbar></app-navbar>
+<!-- <gradeboost-about></gradeboost-about> -->
 
 <div class="wrapper">
   <div class="intro">
@@ -37,21 +38,17 @@
   <div class="projects-wrapper">
     <div class="gradeboost">
       <img src="assets/images/rocket.png" class="rocket">
-      <gradeboost-component></gradeboost-component>
+      <gradeboost-component [routerLink]="['/gradeboost']"></gradeboost-component>
     </div>
 
     <div class="knightflix">
       <img src="assets/images/movie.png" class="movie">
-      <knightflix-component></knightflix-component>
+      <knightflix-component [routerLink]="['/knightflix']"></knightflix-component>
     </div>
 
     <div class="artificial">
       <img src="assets/images/pencil.png" class="pencil">
-      <artificial-component></artificial-component>
+      <artificial-component [routerLink]="['/art-ificialintelligence']"></artificial-component>
     </div>
   </div>
-
-  <!-- <div class="camera">
-    <scene-component></scene-component>
-  </div> -->
 </div>

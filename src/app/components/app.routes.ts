@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { GradeBoostAboutComponent } from './gradeboost-about/gradeboost-about.component';
+import { KnightflixAboutComponent } from './knightflix-about/knightflix-about.component';
+import { ArtificialAboutComponent } from './artificial-about/artificial-about.component';
 
 export const routes: Routes = [
   {
@@ -11,4 +14,16 @@ export const routes: Routes = [
     path: 'contact',
     component: ContactComponent
   },
+  {
+    path: 'gradeboost',
+    component: GradeBoostAboutComponent
+  },
+  {
+    path: 'knightflix',
+    component: KnightflixAboutComponent
+  },
+  {
+    path: "art-ificialintelligence",
+    component: ArtificialAboutComponent
+  }
 ];
