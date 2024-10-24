@@ -16,4 +16,11 @@ export class NavbarComponent {
     this.isScrolled = window.scrollY > 100; // Change this value if you want to trigger it at a different scroll position
   }
 
+  scrollToProjects() {
+    window.scrollTo({
+      top: 1000,
+      behavior: 'smooth'
+    });
+  }
+
 }

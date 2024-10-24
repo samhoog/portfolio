@@ -1,2 +1,65 @@
+<loadingscreen2-component *ngIf="showOverlay"></loadingscreen2-component>
 <app-navbar></app-navbar>
-<div class="wrapper"></div>
+<div class="wrapper">
+    <div class="title-wrapper">
+        <p class="title"><b>Knightflix</b></p>
+    </div>
+    <div class="about">
+        <div class="timeline-wrapper">
+            <p class="timeline"><b>Timeline</b></p>
+            <p class="dates">2022 - 2023</p>
+        </div>
+        <div class="team-wrapper">
+            <p class="team"><b>Team</b></p>
+            <div class="pfps">
+                <div class="sam-popup-wrapper">
+                    <img (mouseenter)="onSamMouseEnter()" (mouseleave)="onSamMouseLeave()" src="assets/images/sam.JPG" class="pfp">
+                    <span class="sam-popup" *ngIf="samHovered"><b>Sam Hoogewind</b></span>
+                </div>
+                <div class="ael-popup-wrapper">
+                    <img (mouseenter)="onAelMouseEnter()" (mouseleave)="onAelMouseLeave()" src="assets/images/ael.jpg" class="pfp">
+                    <span class="ael-popup" *ngIf="aelHovered"><b>Ael Lee</b></span>
+                </div>
+                <div class="justin-popup-wrapper">
+                    <img (mouseenter)="onJustinMouseEnter()" (mouseleave)="onJustinMouseLeave()" src="assets/images/justin.jpg" class="pfp">
+                    <span class="justin-popup" *ngIf="justinHovered"><b>Justin Voss</b></span>
+                </div>
+                <div class="tyler-popup-wrapper">
+                    <img (mouseenter)="onTylerMouseEnter()" (mouseleave)="onTylerMouseLeave()" src="assets/images/tyler.jpg" class="pfp">
+                    <span class="tyler-popup" *ngIf="tylerHovered"><b>Tyler Voss</b></span>
+                </div>
+                <div class="josh-popup-wrapper">
+                    <img (mouseenter)="onJoshMouseEnter()" (mouseleave)="onJoshMouseLeave()" src="assets/images/josh.jpg" class="pfp">
+                    <span class="josh-popup" *ngIf="joshHovered"><b>Joshua DeWindt</b></span>
+                </div>
+            </div>
+        </div>
+        <div class="stack-wrapper">
+            <p class="stack"><b>Tech Stack</b></p>
+            <p class="tech">React Native, JavaScript, PostgreSQL</p>
+        </div>
+    </div>
+
+    <div class="overview-wrapper">
+        <img src="assets/images/knightflixlanding.png" class="landingpic">
+        <p class="overview-title"><b>Overview</b></p>
+        <p class="overview">Knightflix gives regular students the opportunity to show their creative talent on a wider scale. Currently, 
+            there's no single place where you can find any student films. The only place that anyone can view art produced by Calvin students 
+            is in the Communications building basement. With Knightflix, we will provide an app that puts all of Calvin’s films from past and 
+            present into one spot. Knightflix allows you to share, favorite, and even recommend all of your favorite Calvin projects.
+        </p>
+    </div>
+
+    <div class="features-wrapper">
+        <img src="assets/images/knightflix.png" class="featurespic">
+        <p class="features-title"><b>Features</b></p>
+        <p class="features">Knightflix features a home page, individual info pages for each short film, as well as a favorites, recently watched, and search page, 
+            as well as all the movies embedded directly into the app via Vimeo.
+        </p>
+        <p class="features">            
+            We have the abiltiy to favorite movies to find them later more easily, a working search feature, hooks to keep track of your recently watched films 
+            and an ability to filter the home page based on what you'd like to see.
+        </p>
+    </div>
+    
+</div>

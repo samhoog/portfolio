@@ -1,2 +1,63 @@
+<loadingscreen2-component *ngIf="showOverlay"></loadingscreen2-component>
 <app-navbar></app-navbar>
-<div class="wrapper"></div>
+<div class="wrapper">
+    <div class="title-wrapper">
+        <p class="title"><b>Art-ificial Intelligence</b></p>
+    </div>
+    <div class="about">
+        <div class="timeline-wrapper">
+            <p class="timeline"><b>Timeline</b></p>
+            <p class="dates">2023</p>
+        </div>
+        <div class="team-wrapper">
+            <p class="team"><b>Team</b></p>
+            <div class="pfps">
+                <div class="sam-popup-wrapper">
+                    <img (mouseenter)="onSamMouseEnter()" (mouseleave)="onSamMouseLeave()" src="assets/images/sam.JPG" class="pfp">
+                    <span class="sam-popup" *ngIf="samHovered"><b>Sam Hoogewind</b></span>
+                </div>
+            </div>
+        </div>
+        <div class="stack-wrapper">
+            <p class="stack"><b>Tech Stack</b></p>
+            <p class="tech">Python, PyTorch, StreamLit</p>
+        </div>
+    </div>
+
+    <div class="overview-wrapper">
+        <img src="assets/images/artificial.png" class="landingpic">
+        <p class="overview-title"><b>Overview</b></p>
+        <p class="overview">Art-ificial Intelligence is an image classifier that can predict what a user is 
+            drawing based on the Google QuickDraw dataset. The classifier has been trained on the QuickDraw dataset, which is a collection of over 
+            50 million drawings across 345 categories (this classifier features 20). The system uses a fastai vision learner to classify the user's input 
+            and provides the prediction in real-time.
+        </p>
+    </div>
+
+    <div class="features-wrapper">
+        <img src="assets/images/artificialpage.png" class="featurespic">
+        <p class="features-title"><b>Features</b></p>
+        <p class="features">With features like professor, student and grader roles with corresponding dashboards for overseeing all appeals, as well as live chats for 
+            seamless communication, both students and educators can engage effectively. 
+        </p>
+        <p class="features">            
+            The image classifier is implemented with a drawing canvas API through StreamLit, where the user can draw right on the webpage. As the user draws the image 
+            classifier is readily updated, displaying what it believes the user is drawing.
+        </p>
+    </div>
+
+    <div class="try-wrapper"> 
+        <p class="try-title"><b>Give it a try!</b></p>
+    </div>
+
+    <div class="disclaimer-wrapper">
+        <p class="disclaimer-title"><b>(Make sure to draw large)</b></p>
+    </div>
+
+    <div class="iframe-container">
+        <iframe
+          src="https://samhoog-art-ificialin-applicationart-ificialintelligence-qh6rsf.streamlit.app/?embed=true"
+          class="iframe">
+        </iframe>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, QueryList, OnInit, ViewChild, ViewChildren, ElementRef, AfterViewInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { TextScrambleService } from '../../services/TextScramble/text-scramble.service';
 import { GradeboostComponent } from '../gradeboost/gradeboost.component';
@@ -50,13 +50,18 @@ import { LoadingScreen2Component } from '../loadingscreen2/loadingscreen2.compon
     ]),
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('scrambleElement', { static: true }) scrambleElement!: ElementRef;
+  @ViewChildren('hidden') hiddenElements!: QueryList<ElementRef>;
   isVisible = true;
   readonly Scene = SceneComponent;
   showOverlay = true;
 
-  constructor(private textScrambleService: TextScrambleService, private router: Router) {}
+  observer! : IntersectionObserver;
+
+
+  constructor(private textScrambleService: TextScrambleService, private router: Router) {
+}
 
   ngOnInit() {
     window.scrollTo(0, 0); // Scroll to the top
@@ -72,7 +77,21 @@ export class HomeComponent implements OnInit {
       this.textScrambleService.init(this.scrambleElement.nativeElement);
       this.textScrambleService.setText("<i>Full Stack Developer");
     }, 2800)
+  }
 
+  ngAfterViewInit() {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+
+    this.hiddenElements.forEach((el) => this.observer.observe(el.nativeElement));
   }
   
   onActivate(event: Event) {
