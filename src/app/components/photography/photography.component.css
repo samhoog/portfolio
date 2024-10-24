@@ -1,0 +1,26 @@
+:host {
+    display: flex; /* Use flexbox for easy centering */
+    align-items: center; /* Center content vertically */
+    width: 100vw; /* Full viewport width */
+    margin: 0; /* Remove default margin */
+    position: absolute; /* Position it relative to the viewport */
+    top: 0;
+    left: 0;
+}
+  
+.wrapper {
+    background-image: linear-gradient(#87bba2, #c9e4ca 30%);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.scene-wrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.scene {
+    width: 60vw;
+}

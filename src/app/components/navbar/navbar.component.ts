@@ -13,7 +13,7 @@ export class NavbarComponent {
   isScrolled = false;
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolled = window.scrollY > 100; // Change this value if you want to trigger it at a different scroll position
+    this.isScrolled = window.scrollY > 20; // Change this value if you want to trigger it at a different scroll position
   }
 
   scrollToProjects() {

@@ -143,7 +143,6 @@ export class SceneComponent implements AfterViewInit {
 
   private createScene() {
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xf0f0f0);
 
     this.camera = new THREE.PerspectiveCamera(45, this.getAspectRatio(), 1, 1000);
     this.camera.position.z = 500;
@@ -184,10 +183,10 @@ export class SceneComponent implements AfterViewInit {
   }
 
   private startRendering() {
-    this.renderer = new THREE.WebGLRenderer( { canvas: this.canvas });
+    this.renderer = new THREE.WebGLRenderer( { canvas: this.canvas, alpha: true });
+    this.renderer.setClearColor( 0xffffff, 0);
     this.renderer.setPixelRatio(devicePixelRatio);
-    this.renderer.setSize(600, 600);
-
+    this.renderer.setSize(1280, 1280);
     let component: SceneComponent = this;
 
     // let controls : OrbitControls = this.controls;

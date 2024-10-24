@@ -4,6 +4,7 @@ import { ContactComponent } from './contact/contact.component';
 import { GradeBoostAboutComponent } from './gradeboost-about/gradeboost-about.component';
 import { KnightflixAboutComponent } from './knightflix-about/knightflix-about.component';
 import { ArtificialAboutComponent } from './artificial-about/artificial-about.component';
+import { PhotographyComponent } from './photography/photography.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: "art-ificialintelligence",
     component: ArtificialAboutComponent
+  },
+  {
+    path: "photography",
+    component: PhotographyComponent
   }
 ];
