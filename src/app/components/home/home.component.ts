@@ -11,11 +11,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { Router, RouterModule } from '@angular/router';
 import { GradeBoostAboutComponent } from '../gradeboost-about/gradeboost-about.component';
 import { LoadingScreen2Component } from '../loadingscreen2/loadingscreen2.component';
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'home-component',
   standalone: true,
-  imports: [GradeBoostAboutComponent, RouterModule, SceneComponent, GradeboostComponent, KnightflixComponent, ArtificialComponent, LoadingScreenComponent, LoadingScreen2Component, 
+  imports: [ContactComponent, GradeBoostAboutComponent, RouterModule, SceneComponent, GradeboostComponent, KnightflixComponent, ArtificialComponent, LoadingScreenComponent, LoadingScreen2Component, 
     CommonModule, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

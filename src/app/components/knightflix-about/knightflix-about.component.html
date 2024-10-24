@@ -2,16 +2,16 @@
 <app-navbar></app-navbar>
 <div class="wrapper">
     <div class="title-wrapper">
-        <p class="title"><b>Knightflix</b></p>
+        <p #hidden class="title hidden"><b>Knightflix</b></p>
     </div>
     <div class="about">
         <div class="timeline-wrapper">
-            <p class="timeline"><b>Timeline</b></p>
-            <p class="dates">2022 - 2023</p>
+            <p #hidden class="timeline hidden"><b>Timeline</b></p>
+            <p #hidden class="dates hidden">2022 - 2023</p>
         </div>
         <div class="team-wrapper">
-            <p class="team"><b>Team</b></p>
-            <div class="pfps">
+            <p #hidden class="team hidden"><b>Team</b></p>
+            <div #hidden class="pfps hidden">
                 <div class="sam-popup-wrapper">
                     <img (mouseenter)="onSamMouseEnter()" (mouseleave)="onSamMouseLeave()" src="assets/images/sam.JPG" class="pfp">
                     <span class="sam-popup" *ngIf="samHovered"><b>Sam Hoogewind</b></span>
@@ -35,15 +35,15 @@
             </div>
         </div>
         <div class="stack-wrapper">
-            <p class="stack"><b>Tech Stack</b></p>
-            <p class="tech">React Native, JavaScript, PostgreSQL</p>
+            <p #hidden class="stack hidden"><b>Tech Stack</b></p>
+            <p #hidden class="tech hidden">React Native, JavaScript, PostgreSQL</p>
         </div>
     </div>
 
     <div class="overview-wrapper">
-        <img src="assets/images/knightflixlanding.png" class="landingpic">
-        <p class="overview-title"><b>Overview</b></p>
-        <p class="overview">Knightflix gives regular students the opportunity to show their creative talent on a wider scale. Currently, 
+        <img #hidden src="assets/images/knightflixlanding.png" class="landingpic hidden">
+        <p #hidden class="overview-title hidden"><b>Overview</b></p>
+        <p #hidden class="overview hidden">Knightflix gives regular students the opportunity to show their creative talent on a wider scale. Currently, 
             there's no single place where you can find any student films. The only place that anyone can view art produced by Calvin students 
             is in the Communications building basement. With Knightflix, we will provide an app that puts all of Calvin’s films from past and 
             present into one spot. Knightflix allows you to share, favorite, and even recommend all of your favorite Calvin projects.
@@ -51,12 +51,12 @@
     </div>
 
     <div class="features-wrapper">
-        <img src="assets/images/knightflix.png" class="featurespic">
-        <p class="features-title"><b>Features</b></p>
-        <p class="features">Knightflix features a home page, individual info pages for each short film, as well as a favorites, recently watched, and search page, 
+        <img #hidden src="assets/images/knightflix.png" class="featurespic hidden">
+        <p #hidden class="features-title hidden"><b>Features</b></p>
+        <p #hidden class="features hidden">Knightflix features a home page, individual info pages for each short film, as well as a favorites, recently watched, and search page, 
             as well as all the movies embedded directly into the app via Vimeo.
         </p>
-        <p class="features">            
+        <p #hidden class="features hidden">            
             We have the abiltiy to favorite movies to find them later more easily, a working search feature, hooks to keep track of your recently watched films 
             and an ability to filter the home page based on what you'd like to see.
         </p>

@@ -2,16 +2,16 @@
 <app-navbar></app-navbar>
 <div class="wrapper">
     <div class="title-wrapper">
-        <p class="title"><b>GradeBoost</b></p>
+        <p #hidden class="title hidden"><b>GradeBoost</b></p>
     </div>
     <div class="about">
         <div class="timeline-wrapper">
-            <p class="timeline"><b>Timeline</b></p>
-            <p class="dates">2023 - 2024</p>
+            <p #hidden class="timeline hidden"><b>Timeline</b></p>
+            <p #hidden class="dates hidden">2023 - 2024</p>
         </div>
         <div class="team-wrapper">
-            <p class="team"><b>Team</b></p>
-            <div class="pfps">
+            <p #hidden class="team hidden"><b>Team</b></p>
+            <div #hidden class="pfps hidden">
                 <div class="sam-popup-wrapper">
                     <img (mouseenter)="onSamMouseEnter()" (mouseleave)="onSamMouseLeave()" src="assets/images/sam.JPG" class="pfp">
                     <span class="sam-popup" *ngIf="samHovered"><b>Sam Hoogewind</b></span>
@@ -31,27 +31,27 @@
             </div>
         </div>
         <div class="stack-wrapper">
-            <p class="stack"><b>Tech Stack</b></p>
-            <p class="tech">Angular, TypeScript, Docker, Supabase, Resend</p>
+            <p #hidden class="stack hidden"><b>Tech Stack</b></p>
+            <p #hidden class="tech hidden">Angular, TypeScript, Docker, Supabase, Resend</p>
         </div>
     </div>
 
     <div class="overview-wrapper">
-        <img src="assets/images/gradeboostlanding.png" class="landingpic">
-        <p class="overview-title"><b>Overview</b></p>
-        <p class="overview">GradeBoost offers a centralized, user-friendly interface that allows students to submit, track, 
+        <img #hidden src="assets/images/gradeboostlanding.png" class="landingpic hidden">
+        <p #hidden class="overview-title hidden"><b>Overview</b></p>
+        <p #hidden class="overview hidden">GradeBoost offers a centralized, user-friendly interface that allows students to submit, track, 
             and manage grade appeals effortlessly. When a project is graded incorrectly or you resubmit a lab, the process can be 
             down quickly and effectively though GradeBoost, instead of cluttering up email inboxes.
         </p>
     </div>
 
     <div class="features-wrapper">
-        <img src="assets/images/gradeboostpage.jpg" class="featurespic">
-        <p class="features-title"><b>Features</b></p>
-        <p class="features">With features like professor, student and grader roles with corresponding dashboards for overseeing all appeals, as well as live chats for 
+        <img #hidden src="assets/images/gradeboostpage.jpg" class="featurespic hidden">
+        <p #hidden class="features-title hidden"><b>Features</b></p>
+        <p #hidden class="features hidden">With features like professor, student and grader roles with corresponding dashboards for overseeing all appeals, as well as live chats for 
             seamless communication, both students and educators can engage effectively. 
         </p>
-        <p class="features">            
+        <p #hidden class="features hidden">            
             Using Resend we implemented weekly digest emails and adjustable notification settings, 
             as well as having on-premise single sign-on authentication. Plus, pre-written response templates help professors save time while 
             focusing on supporting student success.

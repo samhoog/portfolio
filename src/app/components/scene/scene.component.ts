@@ -24,14 +24,19 @@ export class SceneComponent implements AfterViewInit {
   private raycaster = new THREE.Raycaster;
   private mouse = new THREE.Vector2;
 
-  private images = ['assets/images/1.JPG', 
+  private images = ['assets/images/1.jpg', 
       'assets/images/2.JPG', 
       'assets/images/3.JPG', 
       'assets/images/4.JPG', 
       'assets/images/5.JPG', 
       'assets/images/6.JPG', 
       'assets/images/7.JPG', 
-      'assets/images/8.JPG'
+      'assets/images/8.JPG',
+      'assets/images/9.png',
+      'assets/images/10.JPG',
+      'assets/images/11.jpg',
+      'assets/images/12.jpg',
+      'assets/images/13.JPG',
   ]
 
   private currentImage = 1;

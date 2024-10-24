@@ -1,8 +1,14 @@
-
 <loadingscreen2-component *ngIf="showOverlay"></loadingscreen2-component>
-
 <app-navbar></app-navbar>
 <div class="wrapper">
+    <div class="double-wrapper">
+        <div class="info-wrapper">
+            <p class="title"><b>About</b></p>
+            <p class="info">This page is an experiment with Three.js. (Assuming the model loads in your browser) you can click on the camera to spin it 
+                around, and then click on the circular menu buttons to cycle through photos I've taken.
+            </p>
+        </div>
+    </div>
     <div class="scene-wrapper">
         <scene-component class="scene"></scene-component>
     </div>

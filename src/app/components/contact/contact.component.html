@@ -1,1 +1,30 @@
-<p>contact works!</p>
+<loadingscreen2-component *ngIf="showOverlay"></loadingscreen2-component>
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <div class="title-wrapper">
+        <p class="title"><b>Hi, I'm Sam</b></p>
+    </div>
+    <div class="flex-wrapper">
+        <div class="img-wrapper">
+            <img src="assets/images/sam.JPG" class="pfp" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+            <div class="shine" [class.visible]="isHovered"></div>
+        </div>
+        <div class="about-wrapper">
+            <p class="about-title"><b>I'm a software developer in Washington D.C.</b></p>
+            <p class="about">I graduated from Calvin University in 2024 with a degree in Computer Science, and a passion for programming and photography. I like to problem solve, create functional interfaces 
+                and develop web applications. Currently for hire.
+            </p>
+        </div>
+    </div>
+    <div class="website-wrapper">
+        <div class="website-title-wrapper">
+            <p class="website-title"><b>About this Website</b></p>
+        </div>
+        <p class="website-about">This website was built entirely in Angular 17 with TypeScript, with Three.js and Streamlit being intregrated on 
+            different pages. 
+        </p>
+        <p class="website-about">The loading animations are from &nbsp;<a href="https://css-loaders.com">here</a>, and the text scramble is from
+            &nbsp;<a href="https://codepen.io/soulwire/pen/mEMPrK">here</a>.
+        </p>
+    </div>
+</div>

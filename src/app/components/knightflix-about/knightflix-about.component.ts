@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { LoadingScreen2Component } from '../loadingscreen2/loadingscreen2.component';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'knightflix-about',
@@ -12,7 +11,10 @@ import { OnInit } from '@angular/core';
   templateUrl: './knightflix-about.component.html',
   styleUrl: './knightflix-about.component.css'
 })
-export class KnightflixAboutComponent implements OnInit {
+export class KnightflixAboutComponent implements OnInit, AfterViewInit {
+  @ViewChildren('hidden') hiddenElements!: QueryList<ElementRef>;
+  observer! : IntersectionObserver;
+
   constructor(private router: Router) { }
   samHovered = false;
   aelHovered = false;
@@ -27,6 +29,22 @@ export class KnightflixAboutComponent implements OnInit {
     }, 1000); // Delay to allow for the view to render
     window.scrollTo(0, 0); // Scroll to the top
   }
+
+  ngAfterViewInit() {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+
+    this.hiddenElements.forEach((el) => this.observer.observe(el.nativeElement));
+  }
+  
 
   onSamMouseEnter() {
     this.samHovered = true;

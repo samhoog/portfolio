@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GradeboostAboutComponent } from './gradeboost-about.component';
+import { GradeBoostAboutComponent } from './gradeboost-about.component';
 
-describe('GradeboostAboutComponent', () => {
-  let component: GradeboostAboutComponent;
-  let fixture: ComponentFixture<GradeboostAboutComponent>;
+describe('GradeBoostAboutComponent', () => {
+  let component: GradeBoostAboutComponent;
+  let fixture: ComponentFixture<GradeBoostAboutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GradeboostAboutComponent]
+      imports: [GradeBoostAboutComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(GradeboostAboutComponent);
+    fixture = TestBed.createComponent(GradeBoostAboutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
